@@ -15,10 +15,30 @@
 
   var nav = document.getElementById('nav');
   var toggle = document.getElementById('navToggle');
+  var backdrop = null;
 
-  // Mobile nav toggle
+  function setMenu(open) {
+    if (!nav) return;
+    nav.classList.toggle('open', open);
+    if (toggle) toggle.classList.toggle('active', open);
+    if (backdrop) backdrop.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
+  }
+
+  // Mobile nav: backdrop + close on outside click / Escape
   if (nav && toggle) {
-    toggle.addEventListener('click', function () { nav.classList.toggle('open'); });
+    backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(backdrop);
+
+    toggle.addEventListener('click', function () {
+      setMenu(!nav.classList.contains('open'));
+    });
+    backdrop.addEventListener('click', function () { setMenu(false); });
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMenu(false);
+    });
   }
 
   /* ------------------------------------------------------------
@@ -48,7 +68,7 @@
     var isPage = /\.html($|\?|#)/.test(href);
     var current = location.pathname.split('/').pop() || 'index.html';
 
-    if (nav) nav.classList.remove('open');
+    if (nav) setMenu(false);
     if (!transitionEl || (!isHash && !isPage)) return;
 
     e.preventDefault();
