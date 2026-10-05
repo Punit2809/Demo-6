@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services — Nevex Tech IT</title>
   <meta name="description" content="Explore Nevex Tech IT's complete career services — CV coaching, technical assistance, marketing, application support, interview prep and career advisory.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sweetalert2.min.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230b2b24'/%3E%3Cpath d='M7 17V7l10 10V7' fill='none' stroke='%23d8b26a' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 </head>
 <body data-page="services">
@@ -29,92 +29,104 @@
   <section class="section">
     <div class="container container-narrow">
       <div class="service-block">
-        <div class="sb-media"><img src="images/service-cv.jpg" alt="Resume and CV coaching"></div>
-        <div>
-          <span class="sb-num">01</span>
-          <h3>Expert CV Coaching</h3>
-          <p>Your resume is your first impression — we make it a compelling one. Our coaches rewrite your resume for the U.S. market and optimize it to clear applicant-tracking systems.</p>
-          <ul>
-            <li>ATS-optimized resume rewrite</li>
-            <li>LinkedIn profile &amp; personal branding</li>
-            <li>Cover letters &amp; follow-up templates</li>
-            <li>Keyword targeting for your stack</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="service-block reverse">
-        <div class="sb-media"><img src="images/service-technical.jpg" alt="Technical coding preparation"></div>
-        <div>
-          <span class="sb-num">02</span>
-          <h3>Technical Assistance</h3>
-          <p>Walk into every technical screen prepared. We run live query sessions and coding assessments matched to your target roles and stack.</p>
-          <ul>
-            <li>Live technical query sessions</li>
-            <li>Coding assessment support</li>
-            <li>Stack-specific interview preparation</li>
-            <li>System-design walkthroughs</li>
-          </ul>
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6"><div class="sb-media"><img src="images/service-cv.jpg" alt="Resume and CV coaching"></div></div>
+          <div class="col-lg-6">
+            <span class="sb-num">01</span>
+            <h3>Expert CV Coaching</h3>
+            <p>Your resume is your first impression — we make it a compelling one. Our coaches rewrite your resume for the U.S. market and optimize it to clear applicant-tracking systems.</p>
+            <ul>
+              <li>ATS-optimized resume rewrite</li>
+              <li>LinkedIn profile &amp; personal branding</li>
+              <li>Cover letters &amp; follow-up templates</li>
+              <li>Keyword targeting for your stack</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <div class="service-block">
-        <div class="sb-media"><img src="images/team-collab.jpg" alt="Team collaboration and mentorship"></div>
-        <div>
-          <span class="sb-num">03</span>
-          <h3>Marketing &amp; Mentorship</h3>
-          <p>Your skills deserve visibility. We position your personal brand and market you directly to hiring teams — with a senior mentor in your corner.</p>
-          <ul>
-            <li>Targeted outreach to hiring teams</li>
-            <li>Personal brand positioning</li>
-            <li>1:1 mentorship from senior leads</li>
-            <li>Salary benchmarking</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="service-block reverse">
-        <div class="sb-media"><img src="images/service-application.jpg" alt="Job application support"></div>
-        <div>
-          <span class="sb-num">04</span>
-          <h3>Application Support</h3>
-          <p>We handle the search, the submissions and the follow-ups — so no opportunity slips through the cracks, and you always know where you stand.</p>
-          <ul>
-            <li>Daily curated applications</li>
-            <li>Structured follow-ups</li>
-            <li>Weekly transparent reports</li>
-            <li>Interview scheduling</li>
-          </ul>
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 order-lg-2"><div class="sb-media"><img src="images/service-technical.jpg" alt="Technical coding preparation"></div></div>
+          <div class="col-lg-6 order-lg-1">
+            <span class="sb-num">02</span>
+            <h3>Technical Assistance</h3>
+            <p>Walk into every technical screen prepared. We run live query sessions and coding assessments matched to your target roles and stack.</p>
+            <ul>
+              <li>Live technical query sessions</li>
+              <li>Coding assessment support</li>
+              <li>Stack-specific interview preparation</li>
+              <li>System-design walkthroughs</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <div class="service-block">
-        <div class="sb-media"><img src="images/service-interview.jpg" alt="Interview and offer preparation"></div>
-        <div>
-          <span class="sb-num">05</span>
-          <h3>Interview &amp; Offer Support</h3>
-          <p>From mock interviews to negotiation, we prepare you for every stage — then help you land the best possible offer.</p>
-          <ul>
-            <li>Mock interviews with feedback</li>
-            <li>Company-specific preparation</li>
-            <li>Offer negotiation guidance</li>
-            <li>Onboarding support</li>
-          </ul>
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6"><div class="sb-media"><img src="images/team-collab.jpg" alt="Team collaboration and mentorship"></div></div>
+          <div class="col-lg-6">
+            <span class="sb-num">03</span>
+            <h3>Marketing &amp; Mentorship</h3>
+            <p>Your skills deserve visibility. We position your personal brand and market you directly to hiring teams — with a senior mentor in your corner.</p>
+            <ul>
+              <li>Targeted outreach to hiring teams</li>
+              <li>Personal brand positioning</li>
+              <li>1:1 mentorship from senior leads</li>
+              <li>Salary benchmarking</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="service-block reverse">
-        <div class="sb-media"><img src="images/service-advisory.jpg" alt="Career advisory session"></div>
-        <div>
-          <span class="sb-num">06</span>
-          <h3>Career Advisory</h3>
-          <p>Your placement is just the beginning. We help you build a long-term career path — and stay with you as it grows.</p>
-          <ul>
-            <li>Long-term career mapping</li>
-            <li>Skill-gap analysis</li>
-            <li>Retention &amp; growth planning</li>
-            <li>Alumni network access</li>
-          </ul>
+      <div class="service-block">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 order-lg-2"><div class="sb-media"><img src="images/service-application.jpg" alt="Job application support"></div></div>
+          <div class="col-lg-6 order-lg-1">
+            <span class="sb-num">04</span>
+            <h3>Application Support</h3>
+            <p>We handle the search, the submissions and the follow-ups — so no opportunity slips through the cracks, and you always know where you stand.</p>
+            <ul>
+              <li>Daily curated applications</li>
+              <li>Structured follow-ups</li>
+              <li>Weekly transparent reports</li>
+              <li>Interview scheduling</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6"><div class="sb-media"><img src="images/service-interview.jpg" alt="Interview and offer preparation"></div></div>
+          <div class="col-lg-6">
+            <span class="sb-num">05</span>
+            <h3>Interview &amp; Offer Support</h3>
+            <p>From mock interviews to negotiation, we prepare you for every stage — then help you land the best possible offer.</p>
+            <ul>
+              <li>Mock interviews with feedback</li>
+              <li>Company-specific preparation</li>
+              <li>Offer negotiation guidance</li>
+              <li>Onboarding support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 order-lg-2"><div class="sb-media"><img src="images/service-advisory.jpg" alt="Career advisory session"></div></div>
+          <div class="col-lg-6 order-lg-1">
+            <span class="sb-num">06</span>
+            <h3>Career Advisory</h3>
+            <p>Your placement is just the beginning. We help you build a long-term career path — and stay with you as it grows.</p>
+            <ul>
+              <li>Long-term career mapping</li>
+              <li>Skill-gap analysis</li>
+              <li>Retention &amp; growth planning</li>
+              <li>Alumni network access</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -128,26 +140,34 @@
         <h2 class="section-title">A Four-Step <span class="grad-text">Fast Track</span></h2>
         <p class="section-lead">Transparent, repeatable and built for speed — from enrollment to offer.</p>
       </div>
-      <div class="steps-grid">
-        <div class="step reveal">
-          <span class="step-num">01</span>
-          <h3>Enroll &amp; Audit</h3>
-          <p>Share your resume and goals. We audit your profile against U.S. market standards.</p>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="step reveal">
+            <span class="step-num">01</span>
+            <h3>Enroll &amp; Audit</h3>
+            <p>Share your resume and goals. We audit your profile against U.S. market standards.</p>
+          </div>
         </div>
-        <div class="step reveal">
-          <span class="step-num">02</span>
-          <h3>Prepare &amp; Polish</h3>
-          <p>Resume rewrite, technical sessions and interview coaching for your target roles.</p>
+        <div class="col-lg-3 col-md-6">
+          <div class="step reveal">
+            <span class="step-num">02</span>
+            <h3>Prepare &amp; Polish</h3>
+            <p>Resume rewrite, technical sessions and interview coaching for your target roles.</p>
+          </div>
         </div>
-        <div class="step reveal">
-          <span class="step-num">03</span>
-          <h3>Market &amp; Apply</h3>
-          <p>We submit you to matching roles daily and manage every follow-up on your behalf.</p>
+        <div class="col-lg-3 col-md-6">
+          <div class="step reveal">
+            <span class="step-num">03</span>
+            <h3>Market &amp; Apply</h3>
+            <p>We submit you to matching roles daily and manage every follow-up on your behalf.</p>
+          </div>
         </div>
-        <div class="step reveal">
-          <span class="step-num">04</span>
-          <h3>Interview &amp; Onboard</h3>
-          <p>We prep you per company, negotiate and support you through onboarding.</p>
+        <div class="col-lg-3 col-md-6">
+          <div class="step reveal">
+            <span class="step-num">04</span>
+            <h3>Interview &amp; Onboard</h3>
+            <p>We prep you per company, negotiate and support you through onboarding.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -161,21 +181,27 @@
         <h2 class="section-title">Popular Add-Ons</h2>
         <p class="section-lead">Boost any plan with targeted, high-impact extras.</p>
       </div>
-      <div class="addon-grid">
-        <div class="addon-card reveal">
-          <h4>LinkedIn Profile Optimization</h4>
-          <p>A recruiter-ready LinkedIn profile that attracts inbound interest.</p>
-          <span class="addon-price">$150</span>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="addon-card reveal">
+            <h4>LinkedIn Profile Optimization</h4>
+            <p>A recruiter-ready LinkedIn profile that attracts inbound interest.</p>
+            <span class="addon-price">$150</span>
+          </div>
         </div>
-        <div class="addon-card reveal">
-          <h4>Executive Resume Upgrade</h4>
-          <p>A premium rewrite for senior and leadership-level positioning.</p>
-          <span class="addon-price">$250</span>
+        <div class="col-md-4">
+          <div class="addon-card reveal">
+            <h4>Executive Resume Upgrade</h4>
+            <p>A premium rewrite for senior and leadership-level positioning.</p>
+            <span class="addon-price">$250</span>
+          </div>
         </div>
-        <div class="addon-card reveal">
-          <h4>Interview Recording Review</h4>
-          <p>Send us a practice recording and get detailed, actionable feedback.</p>
-          <span class="addon-price">$200</span>
+        <div class="col-md-4">
+          <div class="addon-card reveal">
+            <h4>Interview Recording Review</h4>
+            <p>Send us a practice recording and get detailed, actionable feedback.</p>
+            <span class="addon-price">$200</span>
+          </div>
         </div>
       </div>
     </div>
@@ -188,7 +214,7 @@
       <p>Choose the support level that fits your goals — every plan includes a dedicated manager and a written guarantee.</p>
       <div class="cta-actions">
         <a href="plans.html" class="btn btn-primary btn-lg">View Plans</a>
-        <a href="contact.html" class="btn btn-ghost-light btn-lg">Book a Consultation</a>
+        <a href="contact.html" class="btn btn-outline-light btn-lg">Book a Consultation</a>
       </div>
     </div>
   </section>
@@ -204,7 +230,11 @@
     <div class="pt-monogram">N</div>
   </div>
 
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/sweetalert2.min.js"></script>
+  <script src="js/alert.js"></script>
 </body>
 </html>

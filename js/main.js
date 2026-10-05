@@ -1,4 +1,4 @@
-/* Nevex Tech IT — interactions (multi-page) */
+/* Nevex Tech IT — interactions (multi-page, Bootstrap) */
 (function () {
   'use strict';
 
@@ -13,31 +13,26 @@
     if (f) f.outerHTML = window.NEVE.footer();
   }
 
-  var nav = document.getElementById('nav');
-  var toggle = document.getElementById('navToggle');
-  var backdrop = null;
+  /* ------------------------------------------------------------
+     Bootstrap navbar collapse — close on link click / Escape
+  ------------------------------------------------------------ */
+  var navMenu = document.getElementById('navMenu');
 
-  function setMenu(open) {
-    if (!nav) return;
-    nav.classList.toggle('open', open);
-    if (toggle) toggle.classList.toggle('active', open);
-    if (backdrop) backdrop.classList.toggle('open', open);
-    document.body.classList.toggle('nav-open', open);
+  function closeNav() {
+    if (!navMenu || !navMenu.classList.contains('show')) return;
+    if (window.bootstrap && bootstrap.Collapse) {
+      bootstrap.Collapse.getOrCreateInstance(navMenu).hide();
+    } else {
+      navMenu.classList.remove('show');
+    }
   }
 
-  // Mobile nav: backdrop + close on outside click / Escape
-  if (nav && toggle) {
-    backdrop = document.createElement('div');
-    backdrop.className = 'nav-backdrop';
-    backdrop.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(backdrop);
-
-    toggle.addEventListener('click', function () {
-      setMenu(!nav.classList.contains('open'));
+  if (navMenu) {
+    navMenu.addEventListener('click', function (e) {
+      if (e.target.closest('.nav-link') || e.target.closest('.btn')) closeNav();
     });
-    backdrop.addEventListener('click', function () { setMenu(false); });
     window.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setMenu(false);
+      if (e.key === 'Escape') closeNav();
     });
   }
 
@@ -68,7 +63,7 @@
     var isPage = /\.html($|\?|#)/.test(href);
     var current = location.pathname.split('/').pop() || 'index.html';
 
-    if (nav) setMenu(false);
+    closeNav();
     if (!transitionEl || (!isHash && !isPage)) return;
 
     e.preventDefault();

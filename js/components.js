@@ -1,4 +1,4 @@
-/* Nevex Tech IT (Veridian) — shared header + footer */
+/* Nevex Tech IT (Veridian) — shared Bootstrap header + footer */
 window.NEVE = (function () {
   var PHONE = '+1 (302) 412-4095';
   var EMAIL = 'careers@nevextechit.com';
@@ -18,7 +18,7 @@ window.NEVE = (function () {
 
   function header(active) {
     var nav = links.map(function (l) {
-      return '<a href="' + l.href + '" class="nav-link' + (l.key === active ? ' active' : '') + '">' + l.label + '</a>';
+      return '<li class="nav-item"><a href="' + l.href + '" class="nav-link' + (l.key === active ? ' active' : '') + '">' + l.label + '</a></li>';
     }).join('');
 
     return '' +
@@ -27,41 +27,45 @@ window.NEVE = (function () {
           '<a href="tel:+13024124095" class="topbar-link">' + phoneIcon + ' ' + PHONE + '</a>' +
           '<a href="mailto:' + EMAIL + '" class="topbar-link">' + mailIcon + ' ' + EMAIL + '</a>' +
         '</div>' +
-        '<div class="topbar-right"><span class="topbar-note"><span class="pulse"></span> Enrollment slots open now</span></div>' +
+        '<div><span class="topbar-note"><span class="pulse"></span> Enrollment slots open now</span></div>' +
       '</div></div>' +
-      '<header class="header" id="header"><div class="container header-inner">' +
-        '<a href="index.html" class="brand"><span class="brand-mark">' + markSvg + '</span><span class="brand-text">Nevex<em>Tech IT</em></span></a>' +
-        '<nav class="nav" id="nav">' + nav + '</nav>' +
-        '<div class="header-actions">' +
-          '<a href="plans.html" class="btn btn-primary">Get Started</a>' +
-          '<button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>' +
+      '<header class="header" id="header"><nav class="navbar navbar-expand-lg">' +
+        '<div class="container">' +
+          '<a href="index.html" class="navbar-brand brand"><span class="brand-mark">' + markSvg + '</span><span class="brand-text">Nevex<em>Tech IT</em></span></a>' +
+          '<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation"><span></span><span></span><span></span></button>' +
+          '<div class="collapse navbar-collapse" id="navMenu">' +
+            '<ul class="navbar-nav mx-auto">' + nav + '</ul>' +
+            '<a href="plans.html" class="btn btn-primary">Get Started</a>' +
+          '</div>' +
         '</div>' +
-      '</div></header>';
+      '</nav></header>';
   }
 
   function footer() {
     return '' +
-      '<footer class="footer"><div class="container footer-grid">' +
-        '<div class="footer-col footer-brand">' +
-          '<a href="index.html" class="brand brand-light"><span class="brand-mark">' + markSvg + '</span><span class="brand-text">Nevex<em>Tech IT</em></span></a>' +
-          '<p>A modern IT placement and career-services company helping technology professionals launch U.S. careers they\'re proud of.</p>' +
+      '<footer class="footer"><div class="container">' +
+        '<div class="row footer-grid">' +
+          '<div class="col-lg-4 col-md-6 footer-brand">' +
+            '<a href="index.html" class="brand brand-light"><span class="brand-mark">' + markSvg + '</span><span class="brand-text">Nevex<em>Tech IT</em></span></a>' +
+            '<p>A modern IT placement and career-services company helping technology professionals launch U.S. careers they\'re proud of.</p>' +
+          '</div>' +
+          '<div class="col-lg-3 col-md-6 footer-col"><h4>Quick Links</h4>' +
+            '<a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a>' +
+            '<a href="plans.html">Plans</a><a href="refer.html">Refer &amp; Earn</a><a href="contact.html">Contact</a>' +
+          '</div>' +
+          '<div class="col-lg-3 col-md-6 footer-col"><h4>Contact</h4>' +
+            '<a href="tel:+13024124095">' + PHONE + '</a>' +
+            '<a href="mailto:' + EMAIL + '">' + EMAIL + '</a>' +
+            '<span>15310 Amberly Dr Suite 250<br>Tampa, FL 33647</span>' +
+          '</div>' +
+          '<div class="col-lg-2 col-md-6 footer-col"><h4>Follow Us</h4>' +
+            '<a href="#">LinkedIn</a><a href="#">Instagram</a>' +
+          '</div>' +
         '</div>' +
-        '<div class="footer-col"><h4>Quick Links</h4>' +
-          '<a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a>' +
-          '<a href="plans.html">Plans</a><a href="refer.html">Refer &amp; Earn</a><a href="contact.html">Contact</a>' +
+        '<div class="footer-bottom">' +
+          '<span>© 2026 Nevex Tech IT. All rights reserved.</span>' +
+          '<span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>' +
         '</div>' +
-        '<div class="footer-col"><h4>Contact</h4>' +
-          '<a href="tel:+13024124095">' + PHONE + '</a>' +
-          '<a href="mailto:' + EMAIL + '">' + EMAIL + '</a>' +
-          '<span>15310 Amberly Dr Suite 250<br>Tampa, FL 33647</span>' +
-        '</div>' +
-        '<div class="footer-col"><h4>Follow Us</h4>' +
-          '<a href="#">LinkedIn</a><a href="#">Instagram</a>' +
-        '</div>' +
-      '</div>' +
-      '<div class="container footer-bottom">' +
-        '<span>© 2026 Nevex Tech IT. All rights reserved.</span>' +
-        '<span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>' +
       '</div></footer>';
   }
 

@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Nevex Tech IT</title>
   <meta name="description" content="Get in touch with Nevex Tech IT. Book a free consultation, call us, or visit our Tampa office — we respond within one business day.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sweetalert2.min.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230b2b24'/%3E%3Cpath d='M7 17V7l10 10V7' fill='none' stroke='%23d8b26a' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 </head>
 <body data-page="contact">
@@ -27,62 +27,62 @@
 
   <!-- ============ CONTACT ============ -->
   <section class="section">
-    <div class="container contact-grid">
-      <div class="contact-form reveal">
-        <h3 class="section-title" style="font-size:26px; margin-bottom:20px;">Send a Message</h3>
-        <!-- <form action="mailto:careers@nevextechit.com" method="post" enctype="text/plain"> -->
-          <form id="contactForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required>
-            </div>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-7">
+          <div class="contact-form reveal">
+            <h3 class="section-title" style="font-size:26px; margin-bottom:20px;">Send a Message</h3>
+            <form id="contactForm" class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="+1 (___) ___-____">
+              </div>
+              <div class="col-md-6">
+                <label for="interest" class="form-label">I'm Interested In</label>
+                <select id="interest" name="interest" class="form-select">
+                  <option>Starter Plan</option>
+                  <option>Basic Plan</option>
+                  <option>Standard Plan</option>
+                  <option>Premium Plan</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-control" placeholder="Tell us about your background and goals…"></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" id="sendButton" class="btn btn-primary btn-lg">Send Message</button>
+              </div>
+            </form>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (___) ___-____">
-            </div>
-            <div class="form-group">
-              <label for="interest">I'm Interested In</label>
-              <select id="interest" name="interest" class="form-select">
-                <option>Starter Plan</option>
-                <option>Basic Plan</option>
-                <option>Standard Plan</option>
-                <option>Premium Plan</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about your background and goals…"></textarea>
-          </div>
-          <!-- <button type="submit" class="btn btn-primary btn-lg">Send Message</button> -->
-           <button type="submit" id="sendButton" class="btn btn-primary btn-lg">Send Message</button>
-        </form>
-      </div>
+        </div>
 
-      <div>
-        <div class="info-card reveal">
-          <span class="ic">✆</span>
-          <div><h4>Phone</h4><p><a href="tel:+13024124095">+1 (302) 412-4095</a></p></div>
-        </div>
-        <div class="info-card reveal">
-          <span class="ic">✉</span>
-          <div><h4>Email</h4><p><a href="mailto:careers@nevextechit.com">careers@nevextechit.com</a></p></div>
-        </div>
-        <div class="info-card reveal">
-          <span class="ic">⚑</span>
-          <div><h4>Office</h4><p>15310 Amberly Dr Suite 250<br>Tampa, FL 33647</p></div>
-        </div>
-        <div class="info-card reveal">
-          <span class="ic">⏱</span>
-          <div><h4>Hours</h4><p>Monday – Friday<br>9:00 AM – 6:00 PM EST</p></div>
+        <div class="col-lg-5">
+          <div class="info-card reveal">
+            <span class="ic">✆</span>
+            <div><h4>Phone</h4><p><a href="tel:+13024124095">+1 (302) 412-4095</a></p></div>
+          </div>
+          <div class="info-card reveal">
+            <span class="ic">✉</span>
+            <div><h4>Email</h4><p><a href="mailto:careers@nevextechit.com">careers@nevextechit.com</a></p></div>
+          </div>
+          <div class="info-card reveal">
+            <span class="ic">⚑</span>
+            <div><h4>Office</h4><p>15310 Amberly Dr Suite 250<br>Tampa, FL 33647</p></div>
+          </div>
+          <div class="info-card reveal">
+            <span class="ic">⏱</span>
+            <div><h4>Hours</h4><p>Monday – Friday<br>9:00 AM – 6:00 PM EST</p></div>
+          </div>
         </div>
       </div>
     </div>
@@ -112,62 +112,54 @@
     <div class="pt-monogram">N</div>
   </div>
 
-  <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const form = document.getElementById("contactForm");
-    const sendButton = document.getElementById("sendButton");
-
-    form.addEventListener("submit", function (e) {
-
-        e.preventDefault();
-
-        const data = {
-            name: document.getElementById("name").value.trim(),
-            email: document.getElementById("email").value.trim(),
-            phone: document.getElementById("phone").value.trim(),
-            interest: document.getElementById("interest").value,
-            message: document.getElementById("message").value.trim()
-        };
-
-        sendButton.disabled = true;
-        sendButton.textContent = "Sending...";
-
-        fetch("https://nevex-contact-api.vercel.app/api/send-email", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        })
-            .then(function (res) {
-                return res.json().catch(function () {
-                    return null;
-                });
-            })
-            .then(function (response) {
-                if (response && response.success) {
-                    alert("Your message has been sent successfully.");
-                    form.reset();
-                } else {
-                    alert(
-                        (response && response.message) ||
-                        "Unable to send your email message."
-                    );
-                }
-            })
-            .catch(function (err) {
-                console.error("API Error:", err);
-                alert("Something went wrong. Please try again.");
-            })
-            .finally(function () {
-                sendButton.disabled = false;
-                sendButton.textContent = "Send Message";
-            });
-
-    });
-
-});
-</script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/sweetalert2.min.js"></script>
+  <script src="js/alert.js"></script>
+  <script>
+    $(function () {
+      var $form = $("#contactForm");
+      var $sendButton = $("#sendButton");
+
+      $form.on("submit", function (e) {
+        e.preventDefault();
+
+        var data = {
+          name: $("#name").val().trim(),
+          email: $("#email").val().trim(),
+          phone: $("#phone").val().trim(),
+          interest: $("#interest").val(),
+          message: $("#message").val().trim()
+        };
+
+        $sendButton.prop("disabled", true).text("Sending...");
+
+        $.ajax({
+          url: "https://nevex-contact-api.vercel.app/api/send-email",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(data),
+          success: function (response) {
+            if (response && response.success) {
+              NEVEAlert.success("Message Sent!", "Thanks for reaching out — we'll get back to you within one business day.");
+              $form[0].reset();
+            } else {
+              NEVEAlert.error("Unable to Send", (response && response.message) || "Your message could not be sent. Please try again.");
+            }
+          },
+          error: function (xhr) {
+            console.error("API Error:", xhr);
+            var msg = (xhr && xhr.responseJSON && xhr.responseJSON.message) || "Something went wrong. Please try again.";
+            NEVEAlert.error("Something Went Wrong", msg);
+          },
+          complete: function () {
+            $sendButton.prop("disabled", false).text("Send Message");
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
