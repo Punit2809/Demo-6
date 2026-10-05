@@ -32,18 +32,21 @@
         <div class="col-lg-7">
           <div class="contact-form reveal">
             <h3 class="section-title" style="font-size:26px; margin-bottom:20px;">Send a Message</h3>
-            <form id="contactForm" class="row g-3">
+            <form id="contactForm" class="row g-3 needs-validation" novalidate>
               <div class="col-md-6">
                 <label for="name" class="form-label">Full Name</label>
                 <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
+                <div class="invalid-feedback">Please enter your full name.</div>
               </div>
               <div class="col-md-6">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
               </div>
               <div class="col-md-6">
                 <label for="phone" class="form-label">Phone</label>
                 <input type="tel" id="phone" name="phone" class="form-control" placeholder="+1 (___) ___-____">
+                <div class="invalid-feedback">Please enter a valid phone number.</div>
               </div>
               <div class="col-md-6">
                 <label for="interest" class="form-label">I'm Interested In</label>
@@ -122,9 +125,48 @@
     $(function () {
       var $form = $("#contactForm");
       var $sendButton = $("#sendButton");
+      var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var phoneRe = /^[+]?[\d\s().-]{7,20}$/;
+
+      function validateForm() {
+        var valid = true;
+        var $name = $("#name");
+        var $email = $("#email");
+        var $phone = $("#phone");
+
+        $form.find(".is-invalid").removeClass("is-invalid");
+
+        if ($name.val().trim().length < 2) {
+          $name.addClass("is-invalid");
+          valid = false;
+        }
+
+        if (!emailRe.test($email.val().trim())) {
+          $email.addClass("is-invalid");
+          valid = false;
+        }
+
+        var phoneVal = $phone.val().trim();
+        if (phoneVal && !phoneRe.test(phoneVal)) {
+          $phone.addClass("is-invalid");
+          valid = false;
+        }
+
+        return valid;
+      }
+
+      // Clear a field's error state as soon as the user starts fixing it
+      $form.find("input, select, textarea").on("input change", function () {
+        $(this).removeClass("is-invalid");
+      });
 
       $form.on("submit", function (e) {
         e.preventDefault();
+
+        if (!validateForm()) {
+          $form.find(".is-invalid").first().focus();
+          return;
+        }
 
         var data = {
           name: $("#name").val().trim(),
