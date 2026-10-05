@@ -30,7 +30,8 @@
     <div class="container contact-grid">
       <div class="contact-form reveal">
         <h3 class="section-title" style="font-size:26px; margin-bottom:20px;">Send a Message</h3>
-        <form action="mailto:careers@nevextechit.com" method="post" enctype="text/plain">
+        <!-- <form action="mailto:careers@nevextechit.com" method="post" enctype="text/plain"> -->
+          <form id="contactForm">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Full Name</label>
@@ -61,7 +62,8 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about your background and goals…"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+          <!-- <button type="submit" class="btn btn-primary btn-lg">Send Message</button> -->
+           <button type="submit" id="sendButton" class="btn btn-primary btn-lg">Send Message</button>
         </form>
       </div>
 
@@ -110,6 +112,76 @@
     <div class="pt-monogram">N</div>
   </div>
 
+  <script>
+$(document).ready(function () {
+
+    $("#contactForm").on("submit", function (e) {
+
+        e.preventDefault();
+
+        const sendButton = $("#sendButton");
+
+        const data = {
+            name: $("#name").val().trim(),
+            email: $("#email").val().trim(),
+            phone: $("#phone").val().trim(),
+            interest: $("#interest").val(),
+            message: $("#message").val().trim()
+        };
+
+        sendButton
+            .prop("disabled", true)
+            .text("Sending...");
+
+        $.ajax({
+
+            url: "https://nevex-contact-api.vercel.app/api/send-email",
+
+            type: "POST",
+
+            contentType: "application/json",
+
+            data: JSON.stringify(data),
+
+            success: function (response) {
+
+                if (response.success) {
+
+                    alert("Your message has been sent successfully.");
+
+                    $("#contactForm")[0].reset();
+
+                } else {
+
+                    alert(
+                        response.message ||
+                        "Unable to send your email message."
+                    );
+                }
+            },
+
+            error: function (xhr) {
+
+                console.error("API Error:", xhr);
+
+                alert(
+                    "Something went wrong. Please try again."
+                );
+            },
+
+            complete: function () {
+
+                sendButton
+                    .prop("disabled", false)
+                    .text("Send Message");
+            }
+
+        });
+
+    });
+
+});
+</script>
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
 </body>
