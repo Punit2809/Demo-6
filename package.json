@@ -1,0 +1,8 @@
+{
+  "name": "contact-form-api",
+  "version": "1.0.0",
+  "main": "api/send-mail.js",
+  "dependencies": {
+    "resend": "^6.0.0"
+  }
+}
