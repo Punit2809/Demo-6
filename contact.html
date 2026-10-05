@@ -113,70 +113,55 @@
   </div>
 
   <script>
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-    $("#contactForm").on("submit", function (e) {
+    const form = document.getElementById("contactForm");
+    const sendButton = document.getElementById("sendButton");
+
+    form.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
-        const sendButton = $("#sendButton");
-
         const data = {
-            name: $("#name").val().trim(),
-            email: $("#email").val().trim(),
-            phone: $("#phone").val().trim(),
-            interest: $("#interest").val(),
-            message: $("#message").val().trim()
+            name: document.getElementById("name").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            interest: document.getElementById("interest").value,
+            message: document.getElementById("message").value.trim()
         };
 
-        sendButton
-            .prop("disabled", true)
-            .text("Sending...");
+        sendButton.disabled = true;
+        sendButton.textContent = "Sending...";
 
-        $.ajax({
-
-            url: "https://nevex-contact-api.vercel.app/api/send-email",
-
-            type: "POST",
-
-            contentType: "application/json",
-
-            data: JSON.stringify(data),
-
-            success: function (response) {
-
-                if (response.success) {
-
+        fetch("https://nevex-contact-api.vercel.app/api/send-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+            .then(function (res) {
+                return res.json().catch(function () {
+                    return null;
+                });
+            })
+            .then(function (response) {
+                if (response && response.success) {
                     alert("Your message has been sent successfully.");
-
-                    $("#contactForm")[0].reset();
-
+                    form.reset();
                 } else {
-
                     alert(
-                        response.message ||
+                        (response && response.message) ||
                         "Unable to send your email message."
                     );
                 }
-            },
-
-            error: function (xhr) {
-
-                console.error("API Error:", xhr);
-
-                alert(
-                    "Something went wrong. Please try again."
-                );
-            },
-
-            complete: function () {
-
-                sendButton
-                    .prop("disabled", false)
-                    .text("Send Message");
-            }
-
-        });
+            })
+            .catch(function (err) {
+                console.error("API Error:", err);
+                alert("Something went wrong. Please try again.");
+            })
+            .finally(function () {
+                sendButton.disabled = false;
+                sendButton.textContent = "Send Message";
+            });
 
     });
 
