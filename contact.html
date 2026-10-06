@@ -160,6 +160,30 @@
         $(this).removeClass("is-invalid");
       });
 
+      function openWhatsApp(data) {
+        var lines = [
+          "New contact form submission",
+          "Name: " + data.name,
+          "Email: " + data.email,
+          "Phone: " + (data.phone || "—"),
+          "Interest: " + data.interest,
+          "Message: " + (data.message || "—")
+        ];
+        var url = "https://wa.me/9601761410?text=" + encodeURIComponent(lines.join("\n"));
+        window.open(url, "_blank");
+      }
+
+      function offerWhatsApp(data, header, body) {
+        NEVEAlert.confirm(header, body, {
+          confirmButtonText: "Open WhatsApp",
+          cancelButtonText: "No, thanks"
+        }).then(function (r) {
+          if (r.isConfirmed) {
+            openWhatsApp(data);
+          }
+        });
+      }
+
       $form.on("submit", function (e) {
         e.preventDefault();
 
@@ -185,16 +209,25 @@
           data: JSON.stringify(data),
           success: function (response) {
             if (response && response.success) {
-              NEVEAlert.success("Message Sent!", "Thanks for reaching out — we'll get back to you within one business day.");
+              NEVEAlert.success("Message Sent!", "Thanks for reaching out — we'll get back to you within one business day.")
+                .then(function () {
+                  offerWhatsApp(data, "Send on WhatsApp?", "Forward this form data to our WhatsApp so we can reply faster?");
+                });
               $form[0].reset();
             } else {
-              NEVEAlert.error("Unable to Send", (response && response.message) || "Your message could not be sent. Please try again.");
+              NEVEAlert.error("Unable to Send", (response && response.message) || "Your message could not be sent. Please try again.")
+                .then(function () {
+                  offerWhatsApp(data, "Send on WhatsApp?", "The email didn't go through — send your details to our WhatsApp instead?");
+                });
             }
           },
           error: function (xhr) {
             console.error("API Error:", xhr);
             var msg = (xhr && xhr.responseJSON && xhr.responseJSON.message) || "Something went wrong. Please try again.";
-            NEVEAlert.error("Something Went Wrong", msg);
+            NEVEAlert.error("Something Went Wrong", msg)
+              .then(function () {
+                offerWhatsApp(data, "Send on WhatsApp?", "We didn't receive that — want to send your details to our WhatsApp instead?");
+              });
           },
           complete: function () {
             $sendButton.prop("disabled", false).text("Send Message");
